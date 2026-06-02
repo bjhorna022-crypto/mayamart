@@ -226,19 +226,13 @@
             <button class="btn" onclick="orderMango('গাছ পাকা হিমসাগর আম', 'weight1')">💬 অর্ডার করুন</button>
         </div>
 
-        <!-- পণ্য ২: হিমসাগর আম (প্রিমিয়াম) -->
+        <!-- পণ্য ২: হিমসাগর আম (প্রিমিয়াম) - দাম ছাড়া -->
         <div class="product">
             <span class="badge">✨ প্রিমিয়াম</span>
             <img src="https://i.ibb.co.com/HT5TfP12/ea2516fd21d8934252f1675eec560089.jpg" alt="হিমসাগর আম">
             <h3>হিমসাগর আম (প্রিমিয়াম)</h3>
-            
-            <label for="weight2" class="weight-label">ওজন ও দাম সিলেক্ট করুন:</label>
-            <select id="weight2" class="weight-select">
-                <option value="১২ কেজি ১৮০০৳">১২ কেজি — ৳ ১৮০০</option>
-                <option value="২০ কেজি ৩০০০৳">২০ কেজি — ৳ ৩০০০</option>
-            </select>
-            <br>
-            <button class="btn" onclick="orderMango('হিমসাগর আম (প্রিমিয়াম)', 'weight2')">💬 অর্ডার করুন</button>
+            <br style="margin-bottom: 20px;">
+            <button class="btn" onclick="orderPremiumMango('হিমসাগর আম (প্রিমিয়াম)')">💬 অর্ডার করুন</button>
         </div>
 
         <!-- পণ্য ৩: লক্ষণভোগ / লাখনা আম -->
@@ -250,7 +244,7 @@
             <label for="weight3" class="weight-label">ওজন ও দাম সিলেক্ট করুন:</label>
             <select id="weight3" class="weight-select">
                 <option value="১৫ কেজি ৮২৫৳">১৫ কেজি — ৳ ৮২৫</option>
-                <option value="২৫ কেজি ১৩৫০৳">২৫ কেজি — ৳ ১৩৫০</option>
+                <option value="২৫ কেজি ১৩さと৳">২৫ কেজি — ৳ ১৩৫০</option>
             </select>
             <br>
             <button class="btn" onclick="orderMango('লক্ষণভোগ / লাখনা আম (প্রিমিয়াম কালার)', 'weight3')">💬 অর্ডার করুন</button>
@@ -266,17 +260,21 @@
 
     <!-- হোয়াটসঅ্যাপ অর্ডার স্ক্রিপ্ট -->
     <script>
+        var phoneNumber = "8801971848139"; 
+
         function orderMango(mangoName, selectId) {
             var selectedDetails = document.getElementById(selectId).value;
-            
-            // আপনার দেওয়া নতুন হোয়াটসঅ্যাপ নাম্বারটি এখানে আপডেট করা হয়েছে
-            var phoneNumber = "8801971848139"; 
-            
             var message = "আসসালামু আলাইকুম, আমি মায়া মার্ট থেকে " + mangoName + " এর " + selectedDetails + " এর প্যাকেজটি অর্ডার করতে চাই।";
+            var whatsappUrl = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+            window.location.href = whatsappUrl;
+        }
+
+        function orderPremiumMango(mangoName) {
+            var message = "আসসালামু আলাইকুম, আমি মায়া মার্ট থেকে " + mangoName + " টি অর্ডার করতে চাই। এটার দাম ও বিস্তারিত জানতে চাই।";
             var whatsappUrl = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
             window.location.href = whatsappUrl;
         }
     </script>
 
 </body>
-              </html>
+</html>
