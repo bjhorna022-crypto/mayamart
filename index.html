@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>মায়া মার্ট — প্রিমিয়াম আম বাগান</title>
-    <!-- ফেসবুক আইকনের জন্য ফন্ট অসাম লিংক -->
+    <!-- ফেসবুক ও অন্যান্য আইকনের জন্য ফন্ট অসাম লিংক -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -13,6 +13,7 @@
             --facebook-color: #1877f2;
             --text-dark: #2c3e50;
             --bg-light: #f8fafc;
+            --accent-orange: #e67e22;
         }
 
         body { 
@@ -22,6 +23,20 @@
             text-align: center;
             color: var(--text-dark);
         }
+
+        /* অফার নোটিশ বার */
+        .notice-bar {
+            background-color: var(--accent-orange);
+            color: white;
+            padding: 8px 10px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .notice-bar marquee {
+            vertical-align: middle;
+        }
         
         /* লাক্সারি হেডার কাভার */
         header { 
@@ -29,7 +44,7 @@
             background-size: cover; 
             background-position: center; 
             color: white; 
-            padding: 45px 20px;
+            padding: 40px 20px;
             border-bottom-left-radius: 25px;
             border-bottom-right-radius: 25px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.15);
@@ -55,7 +70,7 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
         }
 
-        /* ফেসবুক বাটন স্টাইল */
+        /* ফেসবুক বাটন ஸ்டাইল */
         .fb-btn {
             display: inline-flex;
             align-items: center;
@@ -70,10 +85,6 @@
             margin-top: 8px;
             box-shadow: 0 4px 10px rgba(24, 119, 242, 0.3);
             transition: all 0.2s;
-        }
-
-        .fb-btn:active {
-            transform: scale(0.95);
         }
 
         /* স্লোগান বক্স */
@@ -99,7 +110,7 @@
             padding: 0 15px;
         }
 
-        /* মডার্ন প্রোডাক্ট কার্ড */
+        /* মডার্ন প্রোডাক্টカード */
         .product { 
             background: white; 
             margin-bottom: 25px; 
@@ -111,7 +122,6 @@
             overflow: hidden;
         }
 
-        /* ব্যাজ */
         .badge {
             position: absolute;
             top: 15px;
@@ -152,11 +162,23 @@
             font-weight: bold;
             border: 2px solid #e2e8f0;
             border-radius: 10px;
-            margin: 8px 0 18px 0;
+            margin: 8px 0 12px 0;
             width: 100%;
             max-width: 280px;
             outline: none;
             cursor: pointer;
+        }
+
+        /* লাইভ ক্যালকুলেটর বক্স */
+        .live-calc {
+            background-color: #f0fdf4;
+            border: 1px dashed #bbf7d0;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            color: #166534;
         }
         
         /* অর্ডার বাটন */
@@ -176,8 +198,54 @@
             transition: all 0.2s ease;
         }
 
-        .btn:active {
-            transform: scale(0.97);
+        .btn:active { transform: scale(0.97); }
+
+        /* রিভিউ সেকশন */
+        .reviews-section {
+            background: white;
+            padding: 20px;
+            border-radius: 18px;
+            margin-top: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            text-align: left;
+        }
+        .reviews-section h2 {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #1a202c;
+        }
+        .review-card {
+            border-bottom: 1px solid #edf2f7;
+            padding: 10px 0;
+        }
+        .review-card:last-child { border-bottom: none; }
+        .review-stars { color: var(--secondary-color); font-size: 0.9rem; }
+        .reviewer-name { font-weight: bold; font-size: 0.95rem; margin-top: 3px; }
+        .review-text { font-size: 0.9rem; color: #4a5568; margin: 3px 0 0 0; }
+
+        /* কুইক অ্যাকশন বাটন ফ্লোটিং */
+        .contact-box {
+            margin-top: 25px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .call-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            width: 100%;
+            max-width: 250px;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
         }
 
         /* ফুটার */
@@ -188,15 +256,15 @@
             color: #a0aec0;
             font-size: 0.95rem;
         }
-
-        footer a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
+        footer a { color: white; text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
+
+    <!-- স্পেশাল ব্যানার নোটিশ -->
+    <div class="notice-bar">
+        <marquee behavior="scroll" direction="left">⚡ ধামাকা অফার: সরাসরি রাজশাহীর বাগান থেকে শতভাগ ফরমালিন মুক্ত তাজা আম! কোনো অগ্রিম টাকা ছাড়াই ক্যাশ অন ডেলিভারি সুবিধা! ⚡</marquee>
+    </div>
 
     <header>
         <img src="https://i.ibb.co.com/C5rJHpbq/image.jpg" class="logo" alt="Logo">
@@ -218,12 +286,15 @@
             <h3>গাছ পাকা হিমসাগর আম</h3>
             
             <label for="weight1" class="weight-label">ওজন ও দাম সিলেক্ট করুন:</label>
-            <select id="weight1" class="weight-select">
-                <option value="১২ কেজি ১৪৪০৳">১২ কেজি — ৳ ১৪৪০</option>
-                <option value="২০ কেজি ২৩৪০৳">২০ কেজি — ৳ ২৩৪০</option>
+            <select id="weight1" class="weight-select" onchange="updateLivePrice(1)">
+                <option value="১২ কেজি,১৪৪০">১২ কেজি — ৳ ১৪৪০</option>
+                <option value="২০ কেজি,২৩৪০">২০ কেজি — ৳ ২৩৪০</option>
             </select>
-            <br>
-            <button class="btn" onclick="orderMango('গাছ পাকা হিমসাগর আম', 'weight1')">💬 অর্ডার করুন</button>
+
+            <!-- লাইভ রিসিট বক্স -->
+            <div id="calc-box-1" class="live-calc">💵 মোট দাম: ৳ ১৪৪০ (কুরিয়ার চার্জ ফ্রি)</div>
+            
+            <button class="btn" onclick="orderMango('গাছ পাকা হিমসাগর আম', 'weight1')">💬 হোয়াটসঅ্যাপে অর্ডার করুন</button>
         </div>
 
         <!-- পণ্য ২: হিমসাগর আম (প্রিমিয়াম) - দাম ছাড়া -->
@@ -231,8 +302,8 @@
             <span class="badge">✨ প্রিমিয়াম</span>
             <img src="https://i.ibb.co.com/HT5TfP12/ea2516fd21d8934252f1675eec560089.jpg" alt="হিমসাগর আম">
             <h3>হিমসাগর আম (প্রিমিয়াম)</h3>
-            <br style="margin-bottom: 20px;">
-            <button class="btn" onclick="orderPremiumMango('হিমসাগর আম (প্রিমিয়াম)')">💬 অর্ডার করুন</button>
+            <p style="color: #666; font-size: 0.9rem; margin: 10px 0;">(এটার স্পেশাল সাইজ ও আজকের বাজারমূল্য জানতে সরাসরি যোগাযোগ করুন)</p>
+            <button class="btn" onclick="orderPremiumMango('হিমসাগর আম (প্রিমিয়াম)')">💬 দাম জানতে মেসেজ দিন</button>
         </div>
 
         <!-- পণ্য ৩: লক্ষণভোগ / লাখনা আম -->
@@ -242,12 +313,41 @@
             <h3>লক্ষণভোগ / লাখনা আম (প্রিমিয়াম কালার)</h3>
             
             <label for="weight3" class="weight-label">ওজন ও দাম সিলেক্ট করুন:</label>
-            <select id="weight3" class="weight-select">
-                <option value="১৫ কেজি ৮২৫৳">১৫ কেজি — ৳ ৮২৫</option>
-                <option value="২৫ কেজি ১৩さと৳">২৫ কেজি — ৳ ১৩৫০</option>
+            <select id="weight3" class="weight-select" onchange="updateLivePrice(3)">
+                <option value="১৫ কেজি,৯৭০">১৫ কেজি — ৳ ৯৭০</option>
+                <option value="২৫ কেজি,১৬০০">২৫ কেজি — ৳ ১৬০০</option>
             </select>
-            <br>
-            <button class="btn" onclick="orderMango('লক্ষণভোগ / লাখনা আম (প্রিমিয়াম কালার)', 'weight3')">💬 অর্ডার করুন</button>
+
+            <!-- লাইভ রিসিট বক্স -->
+            <div id="calc-box-3" class="live-calc">💵 মোট দাম: ৳ ৯৭০ (কুরিয়ার চার্জ ফ্রি)</div>
+            
+            <button class="btn" onclick="orderMango('লক্ষণভোগ / লাখনা আম (প্রিমিয়াম কালার)', 'weight3')">💬 হোয়াটসঅ্যাপে অর্ডার করুন</button>
+        </div>
+
+        <!-- কুইক কল সাপোর্ট সেকশন -->
+        <div class="contact-box">
+            <p style="margin: 0 0 10px 0; font-weight: bold; color: #4a5568;"><i class="fas fa-headset"></i> কোনো প্রশ্ন আছে? সরাসরি আমাদের কল দিন</p>
+            <a href="tel:+8801971848139" class="call-btn"><i class="fas fa-phone-alt"></i> কল করুন: 01971848139</a>
+        </div>
+
+        <!-- হ্যাপি কাস্টমার রিভিউ সেকশন -->
+        <div class="reviews-section">
+            <h2>⭐ কাস্টমারদের মতামত (Reviews)</h2>
+            <div class="review-card">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <div class="reviewer-name">মোঃ রাসেল, ঢাকা</div>
+                <p class="review-text">লক্ষণভোগ আমগুলো কালার যেমন সুন্দর ছিল, খেতেও মিষ্টি। কোনো অগ্রিম ছাড়াই ডেলিভারি পেয়েছি। ধন্যবাদ মায়া মার্ট।</p>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <div class="reviewer-name">আরিফ হাসান, গাজীপুর</div>
+                <p class="review-text">হিমসাগর আমের সাইজ আর ফ্রেশনেস এক কথায় অসাধারণ! প্যাকিং খুব মজবুত ছিল, একটা আমও নষ্ট হয়নি।</p>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <div class="reviewer-name">উম্মে হাবিবা, চট্টগ্রাম</div>
+                <p class="review-text">খুবই বিশ্বস্ত পেজ। আমের কোয়ালিটি যেমন বলেছিলেন তেমনই পেয়েছি। আবার অর্ডার করব।</p>
+            </div>
         </div>
 
     </div>
@@ -258,19 +358,36 @@
         <p>যেকোনো আপডেট পেতে আমাদের <a href="https://www.facebook.com/share/1He2yjDrPG/" target="_blank" style="color: #3498db;"><i class="fab fa-facebook"></i> ফেসবুক পেজে</a> লাইক দিয়ে রাখুন।</p>
     </footer>
 
-    <!-- হোয়াটসঅ্যাপ অর্ডার স্ক্রিপ্ট -->
+    <!-- স্ক্রিপ্ট এবং লজিক -->
     <script>
         var phoneNumber = "8801971848139"; 
 
+        // লাইভ দাম আপডেট করার ফাংশন
+        function updateLivePrice(productId) {
+            var selectElement = document.getElementById('weight' + productId);
+            var valueSplit = selectElement.value.split(',');
+            var weight = valueSplit[0];
+            var price = valueSplit[1];
+            
+            var calcBox = document.getElementById('calc-box-' + productId);
+            calcBox.innerHTML = "💵 মোট দাম: ৳ " + price + " (" + weight + " — কুরিয়ার চার্জ ফ্রি)";
+        }
+
+        // সাধারণ অর্ডার করার ফাংশন
         function orderMango(mangoName, selectId) {
-            var selectedDetails = document.getElementById(selectId).value;
-            var message = "আসসালামু আলাইকুম, আমি মায়া মার্ট থেকে " + mangoName + " এর " + selectedDetails + " এর প্যাকেজটি অর্ডার করতে চাই।";
+            var selectElement = document.getElementById(selectId);
+            var valueSplit = selectElement.value.split(',');
+            var weight = valueSplit[0];
+            var price = valueSplit[1];
+            
+            var message = "আসসালামু আলাইকুম, আমি মায়া মার্ট থেকে *" + mangoName + "* অর্ডার করতে চাই।\n\n📦 বিবরণ:\n• পরিমাণ: " + weight + "\n• মূল্য: ৳ " + price + " (ক্যাশ অন ডেলিভারি)";
             var whatsappUrl = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
             window.location.href = whatsappUrl;
         }
 
+        // প্রিমিয়াম আম অর্ডার করার ফাংশন
         function orderPremiumMango(mangoName) {
-            var message = "আসসালামু আলাইকুম, আমি মায়া মার্ট থেকে " + mangoName + " টি অর্ডার করতে চাই। এটার দাম ও বিস্তারিত জানতে চাই।";
+            var message = "আসসালামু আলাইকুম, আমি মায়া মার্ট থেকে *" + mangoName + "* টি অর্ডার করতে চাই। এটার বর্তমান দাম, সাইজ ও বিস্তারিত জানতে চাই।";
             var whatsappUrl = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
             window.location.href = whatsappUrl;
         }
